@@ -28,7 +28,7 @@ class Db
 
         if (false !== $res) {
 
-            return $res->$sth->fetchAll();
+            return $sth->fetchAll();
         }
 
 
