@@ -14,4 +14,18 @@ class User
     public $email;
     public $user;
 
+    public static function findAll() {
+
+
+
+        $db = new Db();
+        return $db->query(
+
+            'SELECT * FROM users',
+
+            'App\Models\User'
+            
+        );
+    }
+
 }
