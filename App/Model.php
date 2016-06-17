@@ -2,13 +2,13 @@
 
 namespace App;
 
-class Model {
+ class Model {
     const TABLE = '';
     public static function findAll() {
 
 
 
-        $db = new Db();
+        $db = Db::instance();
         return $db->query(
 
             'SELECT * FROM ' . static::TABLE,
@@ -17,4 +17,5 @@ class Model {
 
         );
     }
+    
 }
