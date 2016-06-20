@@ -21,6 +21,34 @@ namespace App;
         );
     }
 
+     public static function findOneByPk($id, $value) {
+
+         $class = get_called_class();
+
+
+
+         $sql = 'SELECT * FROM ' . static::$table . ' WHERE id=:id';
+         $db = Db::instance();
+         $db->setClassName($class);
+         return $db->query($sql, [':id' => $id])[0];
+
+     }
+
+     public static function findOneByColumn($column, $value) {
+
+         $db = Db::instance();
+         $db->setClassName(get_called_class());
+         $sql = 'SELECT * FROM ' . static::$table . ' WHERE ' . $column . '=:value';
+         $res =  $db->query($sql, [':value' => $value]);
+         if (empty($res)) {
+             throw new ModelException('Ничего не найдено');
+
+         }
+
+         return $res;
+
+     }
+
      public function isNew() {
 
          return empty($this->id);
@@ -57,5 +85,60 @@ VALUES
 
 
      }
-    
+
+     public function update() {
+
+         $cols = [];
+         $data = [];
+
+         foreach ($this as $k => $v) {
+             $data[':' . $k] = $v;
+             if ('id' == $k) {
+                 continue;
+             }
+
+             $cols[] = $k . '=:' . $k;
+         }
+         // var_dump($cols);
+         // var_dump($data);
+
+         $sql = '
+            UPDATE ' . static::TABLE . '
+            SET ' . implode(', ', $cols) . '
+            WHERE id=:id
+        ';
+
+
+         $db = Db::instance();
+         $db->execute($sql, $data);
+     }
+
+     public function save() {
+
+         if (!isset($this->id)) {
+             $this->insert();
+         } else{
+             $this->update();
+         }
+
+     }
+
+     public function delete()
+     {
+
+
+
+
+             $sql = '
+            DELETE FROM ' . static::TABLE . '
+            WHERE id = :id
+        ';
+
+
+             $db = Db::instance();
+             $db->execute($sql);
+         }
+
+
+
 }
