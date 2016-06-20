@@ -14,18 +14,18 @@ class Db
         $this->dbh = new \PDO('mysql:host=127.0.0.1; dbname=test', 'root', '');
     }
 
-    public function execute($sql)
+    public function execute($sql, $params = [])
     {
 
         $sth = $this->dbh->prepare($sql);
-        $res = $sth->execute();
+        $res = $sth->execute($params);
         return $res;
     }
 
     public function query($sql, $class)
     {
 
-        $sth = $this->dbh->prepare($sql);
+        $sth = $this->dbh->prepare ($sql);
         $res = $sth->execute();
 
         if (false !== $res) {
