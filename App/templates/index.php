@@ -8,7 +8,10 @@
     <title>Test User</title>
 
     <!-- Bootstrap -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/css/bootstrap.min.css" rel="stylesheet >
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,10 +22,21 @@
 </head>
 <body>
 <h1>Hello, world!</h1>
+<?php foreach ($users as $user) : ?>
+<div class="panel panel-default">
+    <div class="panel-heading"><h3><?php echo $user->name; ?></h3></div>
+    <div class="panel-body"><?php echo $user->email; ?></div>
+
+
+<?php endforeach;?>
+</div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
 </body>
 </html>

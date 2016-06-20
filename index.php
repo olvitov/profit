@@ -1,14 +1,13 @@
 <?php
 
-use App\Models\User;
+require  __DIR__ . '/autoload.php';
 
-require __DIR__ . '/autoload.php';
+$users = \App\Models\User::findAll();
+include __DIR__ . '/App/templates/index.php';
 
 
 
-$user = new User();
-$user->name = 'Olvit';
-$user->email = 'olvit@mail.ru';
-$user->insert();
+
+
 
 
