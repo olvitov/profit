@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Test User</title>
+    <title><?php echo $this->title; ?></title>
 
     <!-- Bootstrap -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,7 +22,7 @@
 </head>
 <body>
 <h1>Hello, world!</h1>
-<?php foreach ($users as $user) : ?>
+<?php foreach ($this->users as $user) : ?>
 <div class="panel panel-default">
     <div class="panel-heading"><h3><?php echo $user->name; ?></h3></div>
     <div class="panel-body"><?php echo $user->email; ?></div>

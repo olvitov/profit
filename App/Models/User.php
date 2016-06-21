@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: olvit
- * Date: 13.06.2016
- * Time: 17:02
- */
+
 
 namespace App\Models;
 
@@ -18,6 +13,12 @@ implements HasEmail
 
     public $email;
     public $name;
+
+    /**
+     *
+     * @deprecated
+     * @return mixed
+     */
     
     public function getEmail() {
         
