@@ -11,15 +11,31 @@ namespace App;
 
 
 
-        $db = Db::instance();
-        return $db->query(
+     $db = Db::instance();
+     return $db->query(
 
-            'SELECT * FROM ' . static::TABLE,
+         'SELECT * FROM ' . static::TABLE,
+     [],
 
-            self::class
+         self::class
 
-        );
-    }
+     );
+ }
+
+     public static function findById($id) {
+
+
+
+         $db = Db::instance();
+         return $db->query(
+
+             'SELECT * FROM ' . static::TABLE . ' WHERE id=:id',
+         [':id' => $id],
+
+             self::class
+
+         );
+     }
 
      public static function findOneByPk($id, $value) {
 
