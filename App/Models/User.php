@@ -16,7 +16,7 @@ implements HasEmail
 
     /**
      *
-     * @deprecated
+     * 
      * @return mixed
      */
     
