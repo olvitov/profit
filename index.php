@@ -1,9 +1,11 @@
 <?php
 
 require  __DIR__ . '/autoload.php';
-
 $controller = new \App\Controllers\News();
-$controller->action('Index');
+
+$action = $_GET['action'] ?: 'Index';
+
+$controller->action($action);
 
 
 
