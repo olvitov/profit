@@ -34,7 +34,7 @@ namespace App;
 
              self::class
 
-         );
+         )[0];
      }
 
      public static function findOneByPk($id, $value) {

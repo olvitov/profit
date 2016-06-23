@@ -2,9 +2,8 @@
 
 require  __DIR__ . '/autoload.php';
 
-$authors = \App\Models\Author::findAll();
-
-var_dump($authors);
+$controller = new \App\Controllers\News();
+$controller->action('Index');
 
 
 
