@@ -11,7 +11,7 @@ namespace App\Models;
 use App\Model;
 
 /**
- * Class News
+ * Class News 
  * @package App\Models
  *
  * @property \App\Models\Author $author
@@ -25,6 +25,15 @@ class News
     public $title;
     public $lead;
     public $author_id;
+
+    /**
+     * LAZY LOAD
+     * @param $k
+     * @return null
+     */
+
+
+
 
     public function __get($k)
     {

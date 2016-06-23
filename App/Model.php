@@ -17,7 +17,7 @@ namespace App;
          'SELECT * FROM ' . static::TABLE,
      [],
 
-         self::class
+         static::class
 
      );
  }
