@@ -1,10 +1,10 @@
 <?php
 
-require __DIR__ . '/autoload.php';
+$ex = new Exception('Сообщение об исключении');
 
-// $authors = \App\Models\Author::findAll();
-$news = \App\Models\News::findAll();
+echo $ex->getMessage();
 
-var_dump($news[2]->author);
+throw  $ex;
+
 
 
